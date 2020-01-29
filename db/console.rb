@@ -6,6 +6,7 @@ artist1 = Artist.new({
   'name' => 'Oasis'
 }
 )
+artist1.save()
 
 album1 = Album.new({
   'title' => 'Definitly Maybe',
@@ -13,6 +14,7 @@ album1 = Album.new({
   'artist_id' => artist1.id
 }
 )
+album1.save()
 
 binding.pry
 nil
