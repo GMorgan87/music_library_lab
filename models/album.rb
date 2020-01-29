@@ -45,12 +45,19 @@ attr_accessor :title, :genre
     artist = Artist.new(artist_data)
   end
 
+  def delete
+    sql = "DELETE FROM albums WHERE id = $1"
+    values = [@id]
+    SqlRunner.run(sql,values)
+  end
+
+
   def self.delete_all()
     sql = "DELETE FROM albums"
     SqlRunner.run(sql)
   end
 
-  def self.all()
+  def self.all
     sql = "SELECT * FROM albums"
     albums = SqlRunner.run(sql)
     return albums.map{ |album| Album.new(album)}
